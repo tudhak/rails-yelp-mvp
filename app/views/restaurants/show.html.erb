@@ -1,0 +1,25 @@
+<div class="row m-3">
+
+  <h1 class="mb-3"><%= @restaurant.name %></h1>
+
+    <div class="col-6">
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item bg-light"><u>Address</u>: <%= @restaurant.address %></li>
+        <li class="list-group-item"><u>Phone number</u>: <%= @restaurant.phone_number %></li>
+        <li class="list-group-item bg-light"><u>Category</u>: <%= @restaurant.category %></li>
+      </ul>
+
+<h3 class="mb-3">Add a review</h3>
+
+<div class="border rounded p-4 mb-3">
+<%= render "reviews/form" %>
+</div>
+
+<h3 class="mb-3">List of reviews</h3>
+
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><strong>Rating: <%= review.rating %> / 5 </strong> | <%= review.content %></li>
+  <% end %>
+</ul>
